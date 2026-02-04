@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const location = useLocation();
@@ -17,15 +18,18 @@ function Navbar() {
         <div className="text-2xl font-bold text-cyan-600">
           {location.pathname === "/" ? "" : <Link to="/">Home</Link>}
         </div>
-        <div className="space-x-6">
+        <div className="space-x-6 flex">
           {links.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className="text-gray-700 hover:text-cyan-600 transition-colors duration-300"
-            >
-              {link.name}
-            </Link>
+            <motion.div key={link.name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                to={link.path}
+                className={`text-gray-700 hover:text-cyan-600 transition-colors duration-300 ${
+                  location.pathname === link.path ? "text-cyan-600 font-semibold" : ""
+                }`}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
           ))}
         </div>
       </div>

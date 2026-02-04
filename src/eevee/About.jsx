@@ -1,33 +1,54 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 function About() {
   return (
-    <section className="px-6 py-12 bg-gray-900 flex flex-col items-center">
-      <h1 className="text-5xl font-extrabold text-white mb-6 text-center">
-        About Me
-      </h1>
+    <motion.section
+      className="relative z-10 flex flex-col items-center bg-gray-900 px-6 py-20"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Small label */}
+      <motion.p
+        className="mb-4 select-none text-sm uppercase tracking-widest text-cyan-400"
+        initial={{ y: -20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        AMA College Student
+      </motion.p>
 
-      <p className="text-gray-400 max-w-3xl text-center mb-12 text-lg leading-relaxed">
-        Hi, I’m <span className="text-cyan-400 font-semibold">Lourd Christian</span>.
-        I’m a student passionate about learning and building practical projects.
-        I enjoy exploring new technologies and applying them to real-world problems,
-        always ready to grow my skills and knowledge.
-      </p>
+      {/* Title */}
+      <motion.h1
+        className="mb-12 text-center text-6xl font-extrabold tracking-tight text-white md:text-7xl"
+        initial={{ y: -30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
+        ABOUT <span className="text-cyan-400">ME</span>
+      </motion.h1>
 
-      <div className="max-w-3xl text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">Who I Am</h2>
-        <p className="text-gray-400 mb-4">
-          I’m a student eager to learn and explore web development.
-          I focus on building projects that help me practice new skills
-          and understand how technology works in real applications.
+      {/* Card */}
+      <motion.div
+        className="max-w-3xl rounded-xl border border-cyan-400/25 bg-black/50 p-8 text-center shadow-xl shadow-cyan-500/10 backdrop-blur-sm"
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <p className="mb-6 text-lg leading-relaxed text-gray-300">
+          I am <strong className="text-white">Lourd Christian</strong>, currently
+          pursuing my studies at{" "}
+          <strong className="text-cyan-400">AMA College</strong>. I am passionate
+          about Frontend Development and dedicated to building engaging user
+          experiences.
         </p>
-        <p className="text-gray-400">
-          I’m always ready to take on challenges, experiment with new tools,
-          and collaborate with others to grow as a developer.
-          Learning is my top priority, and I aim to create practical, meaningful solutions along the way.
+
+        <p className="text-md italic tracking-wide text-gray-400">
+          “Crafting code that brings ideas to life and inspires others.”
         </p>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 const projectsData = [
   {
@@ -29,7 +29,13 @@ const projectsData = [
 
 function Projects() {
   return (
-    <section className="px-6 py-12 bg-gray-900 flex flex-col items-center">
+    <motion.section
+      className="px-6 py-12 bg-gray-900 flex flex-col items-center"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+    >
       <h1 className="text-5xl font-extrabold text-white mb-4">Featured Projects</h1>
       <p className="text-gray-400 text-center max-w-2xl mb-12">
         A diverse portfolio of apps demonstrating practical, scalable web development skills
@@ -37,12 +43,13 @@ function Projects() {
 
       <div className="w-full max-w-6xl grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projectsData.map((project) => (
-          <a
+          <motion.a
             key={project.id}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition transform hover:-translate-y-1 overflow-hidden"
+            whileHover={{ scale: 1.03 }}
           >
             {project.video ? (
               <video
@@ -74,10 +81,10 @@ function Projects() {
                 ))}
               </div>
             </div>
-          </a>
+          </motion.a>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
