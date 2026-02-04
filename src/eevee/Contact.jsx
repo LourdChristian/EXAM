@@ -50,7 +50,7 @@ function Contact() {
   return (
     <motion.section
       id="contact"
-      className="bg-gray-900 text-white flex flex-col items-center px-6 py-16"
+      className="bg-gray-900 text-white flex flex-col items-center px-6 py-16 pt-28" // Increased pt-28 for more space
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -58,7 +58,7 @@ function Contact() {
     >
       {/* Headings */}
       <motion.h2
-        className="text-4xl font-bold text-center mb-4"
+        className="text-4xl font-bold text-center mb-6 md:mb-8"
         initial={{ y: -20, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -67,7 +67,7 @@ function Contact() {
       </motion.h2>
 
       <motion.h1
-        className="text-cyan-500 font-extrabold text-6xl mb-12 text-center tracking-wide"
+        className="text-cyan-500 font-extrabold text-6xl mb-16 md:mb-20 text-center tracking-wide"
         initial={{ y: -30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}

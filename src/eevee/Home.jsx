@@ -1,11 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
-import profilePic from "../assets/profile.jpg";
-import About from "./About.jsx";
-import Skills from "./Skills.jsx";
-import Projects from "./Projects.jsx";
-import Reviews from "./Reviews.jsx";
-import Contact from "./Contact.jsx";
 import { motion } from "framer-motion";
+import profilePic from "../assets/profile.jpg";
 
 function Home() {
   return (
@@ -16,10 +10,10 @@ function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
     >
-      <section className="text-center flex flex-col justify-center items-center px-6 py-20">
+      <section className="text-center flex flex-col justify-center items-center px-6 py-20 min-h-screen">
         <motion.img
           src={profilePic}
-          className="mx-auto rounded-full border-4 border-cyan-500 mb-6 w-68 h-68 object-cover"
+          className="mx-auto rounded-full border-4 border-cyan-500 mb-6 w-48 sm:w-64 md:w-72 lg:w-80 h-48 sm:h-64 md:h-72 lg:h-80 object-cover"
           alt="Lourd Christian"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
@@ -52,12 +46,6 @@ function Home() {
           skills to create practical and useful applications.
         </motion.p>
       </section>
-
-      <About />
-      <Skills />
-      <Projects />
-      <Reviews />
-      <Contact />
     </motion.div>
   );
 }

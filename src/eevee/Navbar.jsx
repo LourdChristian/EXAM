@@ -13,18 +13,48 @@ function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white shadow-md z-50">
+    <nav className="fixed top-0 w-full bg-dark-blue shadow-md z-50">
       <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
-        <div className="text-2xl font-bold text-cyan-600">
-          {location.pathname === "/" ? "" : <Link to="/">Home</Link>}
+        <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2">
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+                rotate: 5,
+                color: "#00bcd4",
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+              }}
+              className="bg-gray-800 text-white p-2 rounded"
+            >
+              <span className="font-extrabold text-lg">LC</span>
+            </motion.div>
+            <Link to="/" className="text-2xl font-bold text-cyan-500" style={{ letterSpacing: '0.1em' }}>
+              <motion.span
+                whileHover={{
+                  scale: 1.2,
+                  color: "#00bcd4",
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeOut",
+                }}
+              >
+                Louuuurd
+              </motion.span>
+            </Link>
+          </div>
         </div>
-        <div className="space-x-6 flex">
+
+        <div className="space-x-8 flex">
           {links.map((link) => (
             <motion.div key={link.name} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to={link.path}
-                className={`text-gray-700 hover:text-cyan-600 transition-colors duration-300 ${
-                  location.pathname === link.path ? "text-cyan-600 font-semibold" : ""
+                className={`text-white hover:text-cyan-500 transition-colors duration-300 ${
+                  location.pathname === link.path ? "text-cyan-500 font-semibold" : ""
                 }`}
               >
                 {link.name}

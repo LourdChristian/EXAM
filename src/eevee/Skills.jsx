@@ -14,7 +14,7 @@ const skills = [
 function Skills() {
   return (
     <motion.section
-      className="px-6 py-12 bg-gray-900 flex flex-col items-center overflow-hidden"
+      className="px-6 py-12 bg-gray-900 flex flex-col items-center overflow-hidden pt-24"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -39,17 +39,14 @@ function Skills() {
       </motion.p>
 
       <div className="w-full overflow-hidden">
-        {/* DO NOT motion-animate this container */}
-        <div className="flex animate-marquee whitespace-nowrap gap-6">
-          {skills.concat(skills).concat(skills).map((skill, index) => (
+        <div className="flex gap-6 animate-marquee">
+          {skills.concat(skills, skills).map((skill, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center justify-center h-28 min-w-[140px]
-                         bg-gray-800 rounded-xl shadow-md text-white font-medium text-lg
-                         px-6 py-4 border-4 border-gray-500"
+              className="flex flex-col items-center justify-center h-28 min-w-[140px] bg-gray-800 rounded-xl shadow-md text-white font-medium text-lg px-6 py-4 border-4 border-gray-500"
               whileHover={{
                 scale: 1.08,
-                borderColor: "#22d3ee", // cyan-400
+                borderColor: "#22d3ee", 
                 boxShadow: "0 0 25px rgba(34,211,238,0.4)",
               }}
               transition={{ type: "spring", stiffness: 300 }}
@@ -75,12 +72,13 @@ function Skills() {
         {`
           @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-33.3333%); }
+            100% { transform: translateX(-100%); }
           }
           .animate-marquee {
             display: flex;
             width: max-content;
-            animation: marquee 20s linear infinite;
+            animation: marquee 30s linear infinite;
+            will-change: transform;
           }
         `}
       </style>

@@ -37,7 +37,7 @@ function Reviews() {
 
   return (
     <motion.section
-      className="min-h-screen bg-gray-900 px-6 py-16"
+      className="min-h-screen bg-gray-900 px-6 py-16 pt-24" // Added pt-24 for padding-top
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

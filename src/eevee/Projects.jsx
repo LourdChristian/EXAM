@@ -30,7 +30,7 @@ const projectsData = [
 function Projects() {
   return (
     <motion.section
-      className="px-6 py-12 bg-gray-900 flex flex-col items-center"
+      className="px-6 py-12 bg-gray-900 flex flex-col items-center pt-20" // Added pt-20 for extra top padding
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
